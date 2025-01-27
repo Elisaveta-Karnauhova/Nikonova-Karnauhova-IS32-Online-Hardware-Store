@@ -1,0 +1,9 @@
+.DivHorizontal{
+    float: inline-start;
+    line-height: 120px;
+    background-color: gray;
+    margin-left: 20px;
+    width: 300px;
+    text-align: center;
+
+}
