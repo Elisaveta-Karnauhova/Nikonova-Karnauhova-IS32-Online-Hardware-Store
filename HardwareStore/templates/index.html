@@ -2,13 +2,30 @@
 
 {% block title %}Главная{% endblock title %}
 
+
+
 {% block content %}
-<h2>Магазин электроники</h2>
-<p>
-    <img src="static/images/pic1.jpg" alt="pic1"/>
-    <img src="static/images/pic1.jpg" alt="pic1"/>
-    <img src="static/images/pic1.jpg" alt="pic1"/>
-</p>
-<div class="DivHorizontal">Тут хочу фильтр</div>
-<div class="DivHorizontal">Тут ленту</div>
+    <form method="Post" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите название</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите производителя</label><br>
+            <input type="text" name="manufacturer" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if people.count > 0 %}
+    <h2>Список товаров</h2>
+    <table>
+        <tr><th>Id</th><th>Название</th><th>Производитель</th></tr>
+        {% for product in tovar %}
+        <tr><td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.manufacturer }}</td></tr>
+        {% endfor %}
+        </table>
+        {% endif %}
 {% endblock content %}

@@ -4,7 +4,8 @@
     <head>
         <title>{% block title %}{% endblock title %}</title>
         <meta charset="utf-8"/>
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
+        {% csrf_token %}
     </head>
     <body>
         {% block content %}
