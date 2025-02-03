@@ -5,7 +5,7 @@
 
 
 {% block content %}
-    <form method="Post" action="create/">
+    <form method="POST" action="create/">
         {% csrf_token %}
         <p>
             <label>Введите название</label><br>
@@ -17,7 +17,7 @@
         </p>
         <input type="submit" value="Сохранить" >
     </form>
-    {% if people.count > 0 %}
+    {% if tovar.count > 0 %}
     <h2>Список товаров</h2>
     <table>
         <tr><th>Id</th><th>Название</th><th>Производитель</th></tr>
