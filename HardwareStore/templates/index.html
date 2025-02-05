@@ -5,6 +5,9 @@
 
 
 {% block content %}
+
+    <h1>ЭлектроКар</h1>
+
     <form method="POST" action="create/">
         {% csrf_token %}
         <p>
@@ -15,16 +18,36 @@
             <label>Введите производителя</label><br>
             <input type="text" name="manufacturer" />
         </p>
+        <p>
+            <label>Введите Цвет</label><br>
+            <input type="text" name="color" />
+        </p>
+        <p>
+            <label>Введите Цену</label><br>
+            <input type="text" name="price" />
+        </p>
+        <p>
+            <label>Введите Наличие</label><br>
+            <input type="text" name="available" />
+        </p>
+        <p>
+            <label>Введите кол-во товара на складе</label><br>
+            <input type="text" name="amount" />
+        </p>
         <input type="submit" value="Сохранить" >
     </form>
     {% if tovar.count > 0 %}
     <h2>Список товаров</h2>
     <table>
-        <tr><th>Id</th><th>Название</th><th>Производитель</th></tr>
+        <tr><th>Название</th><th>Производитель</th><th>Цвет</th><th>Цена</th><th>Наличие</th><th>Количество товара на складе</th></tr>
         {% for product in tovar %}
-        <tr><td>{{ product.id }}</td>
+        <tr>
         <td>{{ product.name }}</td>
-        <td>{{ product.manufacturer }}</td></tr>
+        <td>{{ product.manufacturer }}</td>
+        <td>{{ product.color }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.available }}</td>
+        <td>{{ product.amount }}</td></tr>
         {% endfor %}
         </table>
         {% endif %}
