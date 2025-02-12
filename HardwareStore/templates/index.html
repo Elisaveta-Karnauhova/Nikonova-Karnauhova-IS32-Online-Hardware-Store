@@ -7,36 +7,25 @@
 {% block content %}
 
     <h1>NewTech</h1>
-
-    <form method="POST" action="create/">
-        {% csrf_token %}
-        <p>
-            <label>Введите название</label><br>
-            <input type="text" name="name" />
-        </p>
-        <p>
-            <label>Введите производителя</label><br>
-            <input type="text" name="manufacturer" />
-        </p>
-        <p>
-            <label>Введите Цвет</label><br>
-            <input type="text" name="color" />
-        </p>
-        <p>
-            <label>Введите Цену</label><br>
-            <input type="text" name="price" />
-        </p>
-        <p>
-            <label>Введите Наличие</label><br>
-            <input type="text" name="available" />
-        </p>
-        <p>
-            <label>Введите кол-во товара на складе</label><br>
-            <input type="text" name="amount" />
-        </p>
-        <input type="submit" value="Сохранить" >
+    <ul>
+        <li class="L"><button type="profile">Профиль</button></li>
+        <li class="L"><button type="basket">Корзина</button></li>
+        <li class="L"><button type="favourite">Отложенное</button></li> 
+    </ul>
+    
+    <form class="F">
+        <label>Категория</label>
+    <select>
+        <option>Пупупуууу</option>
+        <option>Пупупуууу</option>
+        <option>Пупупуууу</option>
+        <option>Пупупуууу</option>
+    </select> 
     </form>
-    {% if tovar.count > 0 %}
+    
+   
+    
+    
     <h2>Список товаров</h2>
     <table>
         <tr><th>Название</th><th>Производитель</th><th>Цвет</th><th>Цена</th><th>Наличие</th><th>Количество товара на складе</th></tr>
@@ -50,5 +39,5 @@
         <td>{{ product.amount }}</td></tr>
         {% endfor %}
         </table>
-        {% endif %}
+        
 {% endblock content %}
